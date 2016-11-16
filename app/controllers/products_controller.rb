@@ -12,8 +12,12 @@ class ProductsController < ApplicationController
   end 
 
   def create
-    products = Product.new({title: params[:title], description: params[:description], brand: params[:brand], price: params[:price]})
-    products.save 
+    product = Product.new({title: params[:title], description: params[:description], brand: params[:brand], price: params[:price]})
+    product.save 
+
+    flash[:success] = "Recipe has been created!"
+
+    redirect_to "/products/#{product.id}"
   end 
 
   def show 
@@ -27,12 +31,20 @@ class ProductsController < ApplicationController
   def update
     product = Product.find_by(id: params[:id])
     product.assign_attributes(({title: params[:title], description: params[:description], brand: params[:brand], price: params[:price]}))
+
+    flash[:success] = "You have edited the recipe"
+
+    redirect_to "/products/#{product.id}"
     product.save 
   end 
 
   def destroy
      product = Product.find_by(id: params[:id])
      product.destroy 
+
+     flash[:success] = "Recipe has been deleted!"
+
+     redirect_to "/products"
   end 
 
 end
