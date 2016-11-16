@@ -1,0 +1,19 @@
+<h1><%= @page_title %>
+  <small>*Products recommended for those with sensitive Irish skin. I have tan skin with blue undertones, but for more information on coloring, please see the post here.</small>
+</h1>
+
+
+
+<h2><% @products.each do |product| %><h2>
+
+ <h4><%= product.title %><h4>
+ <h6><%= product.description %><h6>
+ <h8><%= product.brand %><h8>
+ <h10><%= product.price %><h10>
+ <img src="<%= product.image %>" alt="..." class="img-rounded">
+
+<!-- Contextual button for informational alert messages -->
+<button type="button" class="btn btn-info">Info</button>
+
+<% end %>
+

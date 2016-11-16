@@ -1,0 +1,13 @@
+ <h4><%= @product.title %><h4>
+ <h6><%= @product.description %><h6>
+ <h8><%= @product.brand %><h8>
+ <h10><%= @product.price %><h10>
+ <img src="<%= @product.image %>" alt="..." class="img-rounded">
+
+ <div>
+  <%= link_to "Edit Product", "/products/#{@product.id}/edit" %>
+ </div>
+
+ <div>
+  <%= link_to "Delete Product", "/products/#{@product.id}", method: :delete %>
+ </div>

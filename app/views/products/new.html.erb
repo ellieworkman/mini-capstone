@@ -1,0 +1,28 @@
+<h1>Create a New Product</h1>
+
+<%= form_tag '/products', method: :post do %>
+  <div>
+    <%= label_tag :title  %>
+    <%= text_field_tag :title %>
+  </div>
+
+  <div>
+    <%= label_tag :description %>
+    <%= text_field_tag :description %>
+  </div>
+
+   <div>
+    <%= label_tag :brand %>
+    <%= text_field_tag :brand %>
+  </div>
+
+   <div>
+    <%= label_tag :price %>
+    <%= text_field_tag :price %>
+  </div>
+
+
+  <div>
+  <%= submit_tag "Submit" %>
+  </div>
+<% end %>
