@@ -3,28 +3,27 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-// <html>
-// <head>
-// <style>
-// body {
-//     background-color: lightblue;
-// }
+.img-class {
+  width: 50%;
+  height: 50%;
+}
 
-// h1 {
-//     color: white;
-//     text-align: center;
-// }
+body {
+    background-color: #e0e0d1;
+    font-family: 'Droid Sans', sans-serif;
+    background-image: url(asanoha-400px.png);
+    font-size: 12px;
+}
 
-// p {
-//     font-family: verdana;
-//     font-size: 20px;
-// }
-// </style>
-// </head>
-// <body>
+h1 {
+    color: #24248f;
+    text-align: center; 
+}
 
-// <h1>My First CSS Example</h1>
-// <p>This is a paragraph.</p>
+h4 {}
 
-// </body>
-// </html>
+p {
+    font-family: verdana;
+    //font-size: 20px;
+    color: #24248f
+}

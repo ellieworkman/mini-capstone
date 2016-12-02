@@ -1,22 +1,28 @@
-<h1><%= @page_title %>
-  <small>*Products recommended for those with sensitive Irish skin. I have tan skin with blue undertones, but for more information on coloring, please see the post here.</small>
-</h1>
+<%= @page_title %>*Products recommended for those with sensitive Irish skin. I have tan skin with blue undertones, but for more information on coloring, please see the post here.
+<div id="title" class="row">
 
-
-
-<h2><% @products.each do |product| %><h2>
-
- <h4><%= product.title %><h4>
- <h6><%= product.description %><h6>
- <h8><%= product.brand %><h8>
- <h10><%= product.price %><h10>
- <img src="<%= product.image %>" alt="..." class="img-rounded">
-
-
-
- Click here for the actual product: 
-<!-- Contextual button for informational alert messages -->
-<button type="button" class="btn btn-info">Info</button>
-
-
+<% Category.all.each do |category| %>
+<%= link_to "Category:#{category.name}", "/products?category=#{category.name}" %>
 <% end %>
+
+<%= link_to "Sort by Price: ASC", "/products?sort=price&sort_order=asc" %>
+<%= link_to "Sort by Price: DESC", "/products?sort=price&sort_order=desc" %>
+
+  <% @products.each do |product| %>
+    <div class="col-lg-4">
+
+     <h2><%= product.title %></h2>
+     <p><%= product.description %></p>
+     <p><%= product.brand %></p>
+     <p><%= product.price %></p>
+     
+
+
+
+     Click here for the actual product: 
+     <!-- Contextual button for informational alert messages -->
+     <a type="button" class="btn btn-info" href="/products/<%= product.id %>/edit">Edit</a>
+
+    </div>
+  <% end %>
+</div>

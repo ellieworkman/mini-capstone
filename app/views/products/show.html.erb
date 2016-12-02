@@ -1,8 +1,40 @@
- <h4><%= @product.title %><h4>
- <h6><%= @product.description %><h6>
- <h8><%= @product.brand %><h8>
- <h10><%= @product.price %><h10>
- <img src="<%= @product.image %>" alt="..." class="img-rounded">
+ <h4><%= @product.title %></h4>
+ <h6><%= @product.description %></h6>
+ <h8><%= @product.brand %></h8>
+ <h10><%= @product.price %></h10>
+
+ <% if @product.images.empty? %>
+    <p> No image available </p>
+    <% else %>  
+    <img src="<%= @product.images[0].image_link %>" alt="..." class="img-rounded"/>
+    <% end %>
+
+ <%= form_tag "/carted_products", method: :post do %>
+  <div>
+    <%= label_tag :quantity  %>
+    <%= text_field_tag :quantity %>
+    <%= hidden_field_tag :product_id, @product.id %>
+  </div>
+
+  <div>
+  <%= submit_tag "Add to Cart!" %>
+  </div>
+<% end %>
+  
+
+ <h3>Products: <%= @product.description %></h3>
+
+ <div>
+  <%= @product.sale_method %>
+ </div>
+
+  <div>
+  The tax is: <%= @product.tax %>
+ </div>
+
+  <div>
+  The total price is: <%= @product.total %>
+ </div>
 
  <div>
   <%= link_to "Edit Product", "/products/#{@product.id}/edit" %>
@@ -11,3 +43,4 @@
  <div>
   <%= link_to "Delete Product", "/products/#{@product.id}", method: :delete %>
  </div>
+ 

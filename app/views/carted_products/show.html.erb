@@ -1,0 +1,19 @@
+<h1>Thank you for ordering!</h1>
+
+<h2>Shopping Cart:</h2>
+
+<h4><%= @order.quantity %></h4>
+<h4><%= @order.id %></h4>
+<h4><%= @order.product.title %></h4>
+
+  <div>
+  The tax is: <%= @order.tax %>
+ </div>
+
+  <div>
+  The total prices are: <%= @order.subtotal %>
+ </div>
+
+  <div>
+  The total prices are: <%= @order.total %>
+ </div>

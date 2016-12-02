@@ -21,6 +21,9 @@
     <%= text_field_tag :price %>
   </div>
 
+  <div>
+    <%= collection_select :supplier, :supplier_id, Supplier.all, :id, :name %>
+  </div>
 
   <div>
   <%= submit_tag "Submit" %>

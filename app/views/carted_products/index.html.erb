@@ -1,0 +1,26 @@
+<% @carted_products.each do |carted_product| %>
+    <div class="col-lg-4">
+
+     <h2><%= carted_product.product.title %></h2>
+     <p><%= carted_product.product.description %></p>
+     <p><%= carted_product.product.brand %></p>
+     <p><%= carted_product.product.price %></p>
+
+  <%= form_tag "/carted_products", method: :delete do %>
+  
+    <div>
+    <%= hidden_field_tag :carted_product_id, carted_product.id %>
+    <%= submit_tag "Remove" %>
+    </div>
+    <% end %>
+    </div>
+  
+<% end %>
+
+  <%= form_tag "/orders", method: :post do %>
+
+  <div>
+  <%= submit_tag "Buy Now!" %>
+  </div>
+
+<% end %>
